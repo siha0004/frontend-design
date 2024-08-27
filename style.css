@@ -62,7 +62,7 @@
 }
 
 /* - Kort uden både et billede og en overskrift skal have en justeret font-størrelse og linjehøjde for paragraf tekst. */
-.card:not(:has(img)):not(:has(h3)) {
+.card:not(:has(img, h3)) {
   font-size: 1.25rem;
   line-height: 1.4;
 }
@@ -74,5 +74,9 @@
 
 /* - Kort med billeder skal have nul padding, men deres indhold skal matche padding’en fra de øvrige kort. */
 .card:has(img) img {
-  /* Det som Dannie gjorde i eksempelet/øvelsen i codepen, fra hans slides...  */
+  padding: 0;
+
+  .content {
+    padding: 1rem;
+  }
 }
