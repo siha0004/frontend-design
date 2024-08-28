@@ -1,16 +1,43 @@
 :root {
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-300: #d1d5db;
-    --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --gray-800: #1f2937;
-    --gray-900: #111827;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
 }
 
 body {
-    font-family: system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
+}
+
+article {
+  --gap: 1rem;
+  --full: minmax(var(--gap), 1fr);
+  --content: minmax(0, 65ch);
+  --feature: minmax(0, 3rem);
+
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--full)
+    [feature-start] var(--feature)
+    [content-start] var(--content) [content-end]
+    var(--feature) [feature-end]
+    var(--full) [full-end];
+
+  > * {
+    grid-column: content;
+  }
+
+  blockquote {
+    grid-column: feature;
+  }
+
+  img {
+    grid-column: full;
+  }
 }
