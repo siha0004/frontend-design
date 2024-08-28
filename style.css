@@ -61,7 +61,7 @@ a {
 code {
   font-family: Consolas, "courier new";
   color: crimson;
-  background-color: #f1f1f1;
+  background-color: var(--gray-200);
   padding: 2px 3px;
   font-size: 105%;
   font-weight: 700;
