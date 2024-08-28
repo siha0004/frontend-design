@@ -1,3 +1,5 @@
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.25,1544,18,1.333,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
 :root {
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
@@ -9,35 +11,110 @@
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
+
+  --step--1: clamp(0.8rem, 0.7885rem + 0.0575vw, 0.844rem);
+  --step-0: clamp(1rem, 0.9673rem + 0.1634vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.1847rem + 0.3263vw, 1.4996rem);
+  --step-2: clamp(1.5625rem, 1.4484rem + 0.5706vw, 1.999rem);
+  --step-3: clamp(1.9531rem, 1.7671rem + 0.9301vw, 2.6647rem);
+  --step-4: clamp(2.4414rem, 2.1511rem + 1.4518vw, 3.552rem);
+
+  --space-3xs: clamp(0.25rem, 0.2337rem + 0.0817vw, 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.4837rem + 0.0817vw, 0.5625rem);
+  --space-xs: clamp(0.75rem, 0.7173rem + 0.1634vw, 0.875rem);
+  --space-s: clamp(1rem, 0.9673rem + 0.1634vw, 1.125rem);
+  --space-m: clamp(1.5rem, 1.451rem + 0.2451vw, 1.6875rem);
+  --space-l: clamp(2rem, 1.9346rem + 0.3268vw, 2.25rem);
+  --space-xl: clamp(3rem, 2.902rem + 0.4902vw, 3.375rem);
+  --space-2xl: clamp(4rem, 3.8693rem + 0.6536vw, 4.5rem);
 }
 
 body {
   font-family: system-ui, sans-serif;
+  padding: 8rem 0;
+  background-color: var(--gray-100);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--gray-900);
+  font-weight: 600;
+}
+
+p {
+  color: var(--gray-800);
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: var(--gray-800);
+  text-decoration-color: blue;
+}
+
+code {
+  font-family: Consolas, "courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px 3px;
+  font-size: 105%;
+  font-weight: 700;
+  border-radius: 1px;
+}
+
+figcaption {
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--gray-600);
+  margin-top: var(--space-2xs);
 }
 
 article {
   --gap: 1rem;
   --full: minmax(var(--gap), 1fr);
   --content: minmax(0, 65ch);
-  --feature: minmax(0, 3rem);
+  --flow-space: var(--space-s);
 
   display: grid;
   grid-template-columns:
     [full-start] var(--full)
-    [feature-start] var(--feature)
     [content-start] var(--content) [content-end]
-    var(--feature) [feature-end]
     var(--full) [full-end];
 
   > * {
     grid-column: content;
   }
 
-  blockquote {
-    grid-column: feature;
+  > * + * {
+    margin-block-start: var(--flow-space);
   }
 
-  img {
-    grid-column: full;
+  h1 {
+    font-size: var(--step-4);
+  }
+
+  h2 {
+    --flow-space: var(--space-xl);
+    font-size: var(--step-3);
+  }
+  h3 {
+    --flow-space: var(--space-l);
+    font-size: var(--step-2);
+  }
+  h3 + * {
+    --flow-space: var(--space-2xs);
+  }
+
+  h4 {
+    --flow-space: var(--space-m);
+    font-size: var(--step-1);
+  }
+
+  h4 + * {
+    --flow-space: var(--space-3xs);
   }
 }
