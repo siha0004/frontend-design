@@ -54,6 +54,8 @@ em {
 a {
   color: var(--gray-800);
   text-decoration-color: blue;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.2rem;
 }
 
 code {
