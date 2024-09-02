@@ -50,7 +50,7 @@ article {
     grid-template-columns: 1fr 1fr;
 
     /* - Sæt `order: 1;` på img på hvert andet card */
-    :nth-of-type(even) img {
+    :nth-of-type(even) > & img {
       order: 1;
     }
   }
