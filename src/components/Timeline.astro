@@ -24,11 +24,38 @@ const { data } = Astro.props;
 </article>
 
 <style>
+  section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    position: relative;
+
+    h2,
+    p {
+      place-self: start end;
+      position: sticky;
+      top: 0;
+      bottom: 0;
+    }
+
+    > div {
+      grid-column: 2;
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      gap: 1rem 4rem;
+
+      > p {
+        place-self: start;
+      }
+    }
+  }
+
   @layer components {
     h2 {
       font-size: 1.35rem;
       line-height: var(--space-1);
       color: #f5f5f7;
+      margin-top: 1rem;
     }
 
     p {
